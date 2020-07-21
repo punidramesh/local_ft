@@ -4,7 +4,7 @@ import tqdm
 import os
 import shutil
 
-SERVER_HOST = '127.0.0.1'
+SERVER_HOST = '192.168.0.114'
 SERVER_PORT = 5001
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
@@ -29,7 +29,6 @@ with open(filename, "wb") as f:
         f.write(bytes_read)
         progress.update(len(bytes_read))
 shutil.move(filename,'../simulated_server_storage')
-os.remove(filename)
 
 client_socket.close()
 s.close()
