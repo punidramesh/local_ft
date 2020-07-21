@@ -1,6 +1,7 @@
 # import required libraries
 from vidgear.gears import VideoGear
 from vidgear.gears import NetGear
+import cv2
 
 # define various tweak flags
 options = {'flag' : 0, 'copy' : False, 'track' : False,'compression_format': '.jpg', 'compression_param':[cv2.IMWRITE_JPEG_QUALITY, 60]}
