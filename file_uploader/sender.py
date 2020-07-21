@@ -30,7 +30,7 @@ def send_file(filename, host, port):
     s.close()
 
 if __name__ == "__main__":
-    filename = "../files_to_upload/DP1.jpg"
+    filename = "../files_to_upload/LVL5-GREIFER.mp4"
     host = '127.0.0.1'
     port = 5001
     send_file(filename, host, port)
