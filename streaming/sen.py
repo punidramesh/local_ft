@@ -3,13 +3,13 @@ from vidgear.gears import VideoGear
 from vidgear.gears import NetGear
 
 # define various tweak flags
-options = {'flag' : 0, 'copy' : False, 'track' : False}
+options = {'flag' : 0, 'copy' : False, 'track' : False,'compression_format': '.jpg', 'compression_param':[cv2.IMWRITE_JPEG_QUALITY, 60]}
 
 # Open live video stream on webcam at first index(i.e. 0) device
 stream = VideoGear(source='../simulated_server_storage/LVL5-GREIFER.mp4').start()
 
 # Define Netgear server at given IP address and define parameters (!!! change following IP address '192.168.x.xxx' with client's IP address !!!)
-server = NetGear(address = '192.168.0.114', port = '5454', protocol = 'tcp',  pattern = 1, logging = True, **options)
+server = NetGear(address = '192.168.0.103', port = '5454', protocol = 'tcp',  pattern = 1, logging = True, **options)
 
 # loop over until KeyBoard Interrupted
 while True:
