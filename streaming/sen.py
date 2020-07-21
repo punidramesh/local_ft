@@ -1,32 +1,38 @@
+# import required libraries
 from vidgear.gears import VideoGear
 from vidgear.gears import NetGear
 
+# define various tweak flags
 options = {'flag' : 0, 'copy' : False, 'track' : False}
 
-stream = VideoGear(source='../simulated_server_storage/LVL5-GREIFER.mp4').start() #Open any video stream
-server = NetGear(address = '192.168.0.114', port = '5002',  protocol = 'tcp',pattern =1,logging = True, **options) #Define netgear server with default settings
+# Open live video stream on webcam at first index(i.e. 0) device
+stream = VideoGear(source='../simulated_server_storage/LVL5-GREIFER.mp4').start()
 
-# infinite loop until [Ctrl+C] is pressed
+# Define Netgear server at given IP address and define parameters (!!! change following IP address '192.168.x.xxx' with client's IP address !!!)
+server = NetGear(address = '192.168.0.114', port = '5454', protocol = 'tcp',  pattern = 1, logging = True, **options)
+
+# loop over until KeyBoard Interrupted
 while True:
-    try: 
-        frame = stream.read()
-        # read frames
 
-        # check if frame is None
-        if frame is None:
-            #if True break the infinite loop
-            break
+  try: 
 
-        # do something with frame here
+    # read frames from stream
+    frame = stream.read()
 
-        # send frame to server
-        server.send(frame)
-
-    except KeyboardInterrupt:
-        #break the infinite loop
+    # check for frame if Nonetype
+    if frame is None:
         break
+
+    # {do something with the frame here}
+
+    # send frame to server
+    server.send(frame)
+
+  except KeyboardInterrupt:
+    break
 
 # safely close video stream
 stream.stop()
+
 # safely close server
-#writer.close()
+server.close()
