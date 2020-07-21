@@ -2,8 +2,9 @@
 from vidgear.gears import NetGear
 import cv2
 
+options = {'flag' : 0, 'copy' : False, 'track' : False}
 #define netgear client with `receive_mode = True` and default settings
-client = NetGear(receive_mode = True,address = '192.168.0.114', port = '5002', protocol = 'tcp')
+client = NetGear(receive_mode = True,address = '192.168.0.114', port = '5002', protocol = 'tcp',pattern =1,logging = True, **options)
 
 # infinite loop
 while True:

@@ -1,8 +1,10 @@
 from vidgear.gears import VideoGear
 from vidgear.gears import NetGear
 
+options = {'flag' : 0, 'copy' : False, 'track' : False}
+
 stream = VideoGear(source='../simulated_server_storage/LVL5-GREIFER.mp4').start() #Open any video stream
-server = NetGear(address = '192.168.0.114', port = '5002', protocol = 'tcp') #Define netgear server with default settings
+server = NetGear(address = '192.168.0.114', port = '5002',  protocol = 'tcp',pattern =1,logging = True, **options) #Define netgear server with default settings
 
 # infinite loop until [Ctrl+C] is pressed
 while True:
