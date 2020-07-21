@@ -2,6 +2,7 @@
 import socket
 import tqdm
 import os
+import shutil
 
 SERVER_HOST = '127.0.0.1'
 SERVER_PORT = 5001
@@ -27,6 +28,8 @@ with open(filename, "wb") as f:
             break
         f.write(bytes_read)
         progress.update(len(bytes_read))
+shutil.move(filename,'../simulated_server_storage')
+os.remove(filename)
 
 client_socket.close()
 s.close()

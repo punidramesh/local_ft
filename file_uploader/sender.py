@@ -30,13 +30,6 @@ def send_file(filename, host, port):
     s.close()
 
 if __name__ == "__main__":
-    # import argparse
-    # import os
-    # parser = argparse.ArgumentParser(description="Simple File Sender")
-    # parser.add_argument("file", help="File name to send")
-    # parser.add_argument("host", help="The host/IP address of the receiver")
-    # parser.add_argument("-p", "--port", help="Port to use, default is 5001", default=5001)
-    # args = parser.parse_args()
     filename = "../files_to_upload/DP1.jpg"
     host = '127.0.0.1'
     port = 5001
